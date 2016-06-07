@@ -23,7 +23,7 @@ document.querySelector("body").appendChild(mySVG);
 
 function drawRain(rainNumber) {
   n = rainNumber
-    if (n < 10) {
+   // if (n < 10) {
       n++;
       var x = getRandomInt(0,801);
       var y = getRandomInt(0,501);
@@ -43,9 +43,9 @@ function drawRain(rainNumber) {
    var rmMum = rmDrop.parentNode;
    setTimeout(function() { rmMum.removeChild(rmDrop);}, 3000);
 
-      setTimeout(function() { drawRain(n); }, 10);
-    }
-  return;
+      setTimeout(function() { drawRain(n); }, 50);
+//    }
+//  return;
 }
 
 
