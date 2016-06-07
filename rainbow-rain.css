@@ -1,0 +1,48 @@
+/* nimate fade in and out with opacity so it looks like they appear over time (or they will jsut all appear at nce) */
+
+/* after a certain amout of time use timeout in js to remove the paths */
+
+But ... there is no calc thing in css that can be used for id names. so one workaround is that i could do the css for ssay 200 of the ids then get the script to loop the id names.or the class name.
+
+or script draws them sequentially with timeout. then it redrws them starting with the same names? then why do i need opacity in css. argh.
+
+i CAN give them random ids. (in script) 
+Louis says .So what you do
+Is put a CSS transition on the opacity propertyraindrop-fade { opacity: 0 }
+Then your function plots the raindrop, waits a bit, puts the class on, the drop fades, then you delete the drop
+
+I dont really see th point becasue i could just time the placement of the drops. 
+
+also i dont know if you can set the attribute after the drop is drawn?. BUT it would mean that you could draw the drops first and ot neceasrily see thm as soon as they are drawn.
+
+so at the moment it just draws the drops all at once.
+I need to
+1 - make that a function Draw to draw drops(with opacity 0)
+  var id =setTimeout(fn, delay) 
+2 - make a function that adds a class to drops after a delay
+3- notethat i could also DRAW the drops after a delay...
+4- in css the class changes the opacity so they appear then fade
+5- then the fuction that puts the class on could call another timeout function which removes the drop.
+
+or have a time function round the whole lot so, on load draw ONEdrop, then give it a class after a certain amount of time THEN remove it but before you remove it you are drawing more drops...
+
+so its the svgpath but that needs to be insode the timer function. and it already has a loop in it.
+
+so it waits a bit, draws a dot with a class, then kills it.
+
+func timer
+var path = create path // draws drop
+var path = add class // adds class, does again after half a second? if recursive it will loop forever
+
+timeout timer delays 5 secods //drop fades using css
+function removes drop.
+
+so need nested timer functions?
+
+note. the raindrops are being drawn sequentially but they only have a class afetr theu are drawn. So it mighht not have to be nested i cold just get element by id, or class, wait 5 seconds then remove it then call my timer again?
+
+
+
+or make a recursive timer to add a class to the raindrops every second (so all 500 or however will now have a class  but this wont work cos you will get all at once)
+
+you might not even need to use i++ at all you could do hthe whole things by drawing one drop, waiting a bit, drawing another drop with raindom spacing each time.

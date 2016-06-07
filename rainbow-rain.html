@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title></title>
+    <link rel="stylesheet" href="rainbow-rain.css">
     <script>
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -14,9 +15,6 @@ var i;
 for (i = 0; i < 50; i++) {
   data.push({x: getRandomInt(0,801), y: getRandomInt(0,501), s: Math.random() * 1.75, r: getRandomInt(40,255), g: getRandomInt(40,255), b: getRandomInt(40,255)});
 }
-
-
-
 
 window.onload=function(){
 
@@ -43,6 +41,11 @@ svgPath.setAttribute("d", "M" + data[i].x +"," + data[i].y +"c" + data[i].s*-6 +
 svgPath.setAttribute ("fill","rgb("+ data[i].r + "," +data[i].g + "," + data[i].b +")");
 mySVG.appendChild(svgPath);
 }
+//function timer() {
+//  svgPath.class = "raindrop-path"
+//  setTimeout ("timer()", 1000);
+
+//}
 }
 
     </script>
