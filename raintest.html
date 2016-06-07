@@ -21,10 +21,10 @@ mySVG.setAttribute("id","rain-svg");
 document.querySelector("body").appendChild(mySVG);
 
 
-function drawRain(rainNumber) {
-  n = rainNumber
+function drawRain() {
+ // n = rainNumber
    // if (n < 10) {
-      n++;
+    //  n++;
       var x = getRandomInt(0,801);
       var y = getRandomInt(0,501);
       var s = Math.random() * 1.75;
@@ -34,22 +34,27 @@ function drawRain(rainNumber) {
 
       var svgPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
       svgPath.setAttribute("class", "raindrop-path");
-      svgPath.setAttribute("id", "p"+n);
+  //    svgPath.setAttribute("id", "p"+n);
       svgPath.setAttribute("d", "M" + x +"," + y +"c" + s*-6 + "," + s*22.5 + "," + s*36 + "," + s*22.5 + "," + s*30 + "," + s*0 + "l" + s*-15 + "," + s*-30);
       svgPath.setAttribute ("fill","rgb("+ r + "," + g + "," + b +")");
       mySVG.appendChild(svgPath);
+      setTimeout(function() { svgPath.parentNode.removeChild(svgPath); }, 3000);
 
-   var rmDrop = document.getElementById("p" +n);
-   var rmMum = rmDrop.parentNode;
-   setTimeout(function() { rmMum.removeChild(rmDrop);}, 3000);
+  // var allDrops = document.getElementsByClassName("raindrop-path");
+  // var rmDrop = allDrops[0];
+  
+      // var rmDrop = document.querySelector(".raindrop-path");
+   //var rmDrop = document.getElementById("p" +n);
+   //var rmMum = rmDrop.parentNode;
+   //setTimeout(function() { rmMum.removeChild(rmDrop);}, 3000);
 
-      setTimeout(function() { drawRain(n); }, 50);
+      setTimeout(function() { drawRain(); }, 50);
 //    }
 //  return;
 }
 
 
-drawRain(0);
+drawRain();
 
 
     </script>
