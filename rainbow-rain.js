@@ -4,9 +4,10 @@ function getRandomInt(min, max) {
 
 var mySVG=document.createElementNS("http://www.w3.org/2000/svg", "svg");
 mySVG.setAttribute("width",800);
-mySVG.setAttribute("height",500);
-mySVG.setAttribute("id","rain-svg");
-document.querySelector("body").appendChild(mySVG);
+mySVG.setAttribute("height",300);
+mySVG.setAttribute("class","rain-svg");
+//mySVG.setAttribute("viewBox", "0 0 790 310");
+document.getElementById("rc1").appendChild(mySVG);
 
 
 function drawRain() {
@@ -19,10 +20,10 @@ function drawRain() {
 
   function pathAttrD() {
     return (
-        "M" +             //Move pen to
+        "M" +           //Move pen to
         x + "," +       //x-coordinate
         y + "," +       //y-coordinate
-        "c" +             //c indicates start of cubic bezier coordinates
+        "c" +           //c indicates start of cubic bezier coordinates
         s*-6 + "," +    //s=scale, x-coord of first control point
         s*22.5 + "," +  //y-coord of first control point
         s*36 + "," +    //x-coord of second control point
