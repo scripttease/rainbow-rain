@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    <link rel="stylesheet" href="rainbow-rain.css">
+    <script>
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+var data = [];
+var i;
+for (i = 0; i < 50; i++) {
+  data.push({x: getRandomInt(0,801), y: getRandomInt(0,501), s: Math.random() * 1.75, r: getRandomInt(40,255), g: getRandomInt(40,255), b: getRandomInt(40,255)});
+}
+
+window.onload=function(){
+
+var mySVG=document.createElementNS("http://www.w3.org/2000/svg", "svg");
+mySVG.setAttribute("width",800);
+mySVG.setAttribute("height",500);
+mySVG.setAttribute("id","rain-svg");
+document.querySelector("body").appendChild(mySVG);
+for (i = 0; i < 50; i++) {
+var svgPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+svgPath.setAttribute("class", "raindrop-path");
+svgPath.setAttribute("id", "p"+i);
+
+function rmFunction() {
+  var rmDrop = event.target;
+  var rmMum = rmDrop.parentNode;
+  rmDrop.parentNode.removeChild(rmDrop);
+  return false;
+}
+
+svgPath.onclick = rmFunction;
+
+svgPath.setAttribute("d", "M" + data[i].x +"," + data[i].y +"c" + data[i].s*-6 + "," + data[i].s*22.5 + "," + data[i].s*36 + "," + data[i].s*22.5 + "," + data[i].s*30 + "," + data[i].s*0 + "l" + data[i].s*-15 + "," + data[i].s*-30);
+svgPath.setAttribute ("fill","rgb("+ data[i].r + "," +data[i].g + "," + data[i].b +")");
+mySVG.appendChild(svgPath);
+}
+//function timer() {
+//  svgPath.class = "raindrop-path"
+//  setTimeout ("timer()", 1000);
+
+//}
+
+
+// function rmFunction() {
+//   var rmDrop = document.getElementById("p" +n);
+//   var rmMum = rmDrop.parentNode;
+//   rmDrop.parentNode.removeChild(rmDrop);
+//   setTimeout(function() { rmFunction();}, 5000);
+// };
+
+
+}
+
+    </script>
+  </head>
+  <body>
+
+
+  </body>
+</html>
