@@ -42,7 +42,7 @@ function drawRain() {
   svgPath.setAttribute ("fill","rgb("+ r + "," + g + "," + b +")");
   mySVG.appendChild(svgPath);
 
-  setTimeout(function() { svgPath.parentNode.removeChild(svgPath); }, 3000);
+  setTimeout(function() { svgPath.parentNode.removeChild(svgPath); }, 4000);
 
   setTimeout(function() { drawRain(); }, 50);
 }
